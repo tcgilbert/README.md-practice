@@ -1,51 +1,41 @@
-# README Practice
+# Let's play some tic-tac-toe!
+___
 
-Repo working with different README.md conventions
+To start, `fork` and `clone` this [repo](https://github.com/tcgilbert/tic-tac-toe) on your local machine.
+
+Once you have cloned the repo, open the `index.html` file in your brower, and then simply click a square to start playing!
+
+## Technologies used
+`Javascript`, `HTML`, and `CSS`
+___
+## [JS] Game Logic
+
+The back-bone of the game logic starts with the use of a two-dimensional array that represents the game-board
 
 ```js
-const handleWin = (letter) => {
-  gameIsLive = false;
-  if (letter === "x") {
-    statusDiv.innerHTML = `${letterToSymbol(letter)} has won!`;
-  } else {
-    statusDiv.innerHTML = `<span>${letterToSymbol(letter)} has won!</span>`;
-  }
-};
+var selections = [
+  [null, null, null],
+  [null, null, null],
+  [null, null, null],
+];
 ```
 
-## Steps to install on local computer
-1. Go to [repo](https://github.com/tcgilbert/README.md-practice) on Github profile and `fork` and `clone` repo
+Once a selection is made by a player either a 1 (for X) or a -1 (for O) is reassigned to the corresponding index based on the location of the box div
+◊
 
-
-```css
-.grid {
-    background-color: salmon;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 15px;
-    margin-top: 50px;
-}
+```js
+let arrays = row.concat(col, diag);
+  if (lastChoice.length != 9) {
+      arrays.forEach((i) => {
+          if (i == 3 || i == -3) {
+              gameOverWin(i);
+        animateWinners(arrays);
+      }
 ```
 
+After every move the values for each position are reduced and placed into an array that has a value for each `row`, `column`, and `diagonal`: if any value is equal to `3` or `-3` the game is over and a winning message is displayed.
 
 
-```html
-<div class="grid">
-        <div class="box" id="box-1"></div>
-        <div class="box" id="box-2"></div>
-        <div class="box" id="box-3"></div>
-        <div class="box" id="box-4"></div>
-        <div class="box" id="box-5"></div>
-        <div class="box" id="box-6"></div>
-        <div class="box" id="box-7"></div>
-        <div class="box" id="box-8"></div>
-        <div class="box" id="box-9"></div>
-    </div>
-```
 
+![tic-tac-toe](tic-tac-toe.gif)
 
-| Functions | Description |
-| ----------- | ----------- |
-| Header | Title |
-| Paragraph | Text |
